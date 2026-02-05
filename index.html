@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Valentine's Day — Surprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Valentine's Day surprise — click the heart for more!"
+    />
+  </head>
+  <body class="landing">
+    <main class="center-stage" aria-label="Valentine landing">
+      <h1 class="script">Happy Valentine’s Day, dear Nandhuss!</h1>
+      <p class="lead">Click the heart below for a little surprise.</p>
+
+      <a class="heart-btn" href="surprise.html" aria-label="Open the surprise">
+        <svg
+          viewBox="0 0 120 110"
+          class="heart-svg"
+          role="img"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="hg" x1="0" x2="1">
+              <stop offset="0%" stop-color="#ff9ec2" />
+              <stop offset="100%" stop-color="#ff4d88" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M60 100 C 60 100, 5 70, 5 40 C 5 20, 23 5, 40 5 C 51 5, 58 11, 60 18 C 62 11, 69 5, 80 5 C 97 5, 115 20, 115 40 C 115 70, 60 100, 60 100 Z"
+            fill="url(#hg)"
+          />
+        </svg>
+        <span class="hint">Tap the heart</span>
+      </a>
+    </main>
+
+    <!-- Subtle floating hearts background -->
+    <div class="bg-hearts" aria-hidden="true"></div>
+
+    <script>
+      // Decorative floating hearts in the background (medium)
+      function spawnBgHeart() {
+        const h = document.createElement("div");
+        h.className = "bg-heart";
+        const size = Math.random() * 10 + 8; // 8–18px
+        h.style.width = h.style.height = size + "px";
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.animationDuration = (Math.random() * 7 + 8).toFixed(1) + "s";
+        h.style.opacity = (Math.random() * 0.25 + 0.15).toFixed(2);
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 16000);
+      }
+      setInterval(spawnBgHeart, 700);
+    </script>
+  </body>
+</html>
